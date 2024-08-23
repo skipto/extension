@@ -81,11 +81,11 @@ function isVisible (element) {
     let computedStyle = window.getComputedStyle(el, null);
     let display = computedStyle.getPropertyValue('display');
     let visibility = computedStyle.getPropertyValue('visibility');
-    let hidden = el.getAttribute('hidden');
+    let inert = el.getAttribute('inert');
     let ariaHidden = el.getAttribute('aria-hidden');
 
     if ((display === 'none') || (visibility === 'hidden') ||
-        (hidden !== null) || (ariaHidden === 'true')) {
+        (inert !== null) || (ariaHidden === 'true')) {
       return false;
     }
     return isVisibleRec(el.parentNode);
